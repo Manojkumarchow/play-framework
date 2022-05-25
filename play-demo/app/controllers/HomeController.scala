@@ -23,12 +23,17 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
   }
 
   // this function name is used in routes
-  def hello(name: String) = Action {
+  def hello(name: String) = Action { implicit request =>
     Ok(views.html.hai(name));
     // view name - file name
   }
 
   def echo() = Action { implicit request: Request[_] =>
     Ok("Got request [" + request + "]")
+  }
+
+
+  def product(prodType: String, prodNumber: Int) = Action { implicit request: Request[_] =>
+    Ok(s"Product Type is: $prodType and Product Number is: $prodNumber")
   }
 }

@@ -1,0 +1,34 @@
+@()(implicit request: RequestHeader, flash: Flash)
+
+@main("Login") {
+<h2>Login</h2>
+
+<!-- <form method="get" action="validateLoginGet"> -->
+<form method="get" action="validateLoginGet">
+    Username: <input type="text" name="username" />
+    <br />
+    Password: <input type="password" name="password" />
+    <br />
+    <input type="submit" />
+</form>
+
+<form method="POST" action="@routes.TaskList1.userValidateLoginPost">
+    @helper.CSRF.formField
+    Username: <input type="text" name="username" />
+    <br />
+    Password: <input type="password" name="password" />
+    <br />
+    <input type="submit" />
+</form>
+
+<form method="POST" action="@routes.TaskList1.createUser">
+    @helper.CSRF.formField
+    <h3>Create User</h3>
+    <br />
+    Username: <input type="text" name="username" />
+    <br />
+    Password: <input type="password" name="password" />
+    <br />
+    <input type="submit" />
+</form>
+}
