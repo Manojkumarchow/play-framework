@@ -24,6 +24,11 @@ object TaskListInMemoryModel {
         tasks(userName) = task :: tasks.get(userName).getOrElse(Nil)
     }
 
-    def removeTask(userName: String, index: Int): Unit = ???
+    def removeTask(userName: String, index: Int): Unit = {
+        if (index < 0 || tasks.get(userName).isEmpty || index >= tasks(userName).length) false
+
+        tasks(userName) = tasks(userName).patch(index, Nil, 1)
+        true
+    }
 
 }

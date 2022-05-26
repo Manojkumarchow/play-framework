@@ -26,9 +26,13 @@ GET     /validateLoginGet controllers.TaskList1.userValidateLoginGet(username, p
 
 POST     /validateLoginPost controllers.TaskList1.userValidateLoginPost
 
+POST     /validateLoginForm controllers.TaskList1.validateLoginForm
+
 POST     /createUser        controllers.TaskList1.createUser
 
 POST     /addTask        controllers.TaskList1.addTask
+
+POST     /deleteTask        controllers.TaskList1.deleteTask
 
 GET     /logout             controllers.TaskList1.logout
 # Map static resources from the /public folder to the /assets URL path

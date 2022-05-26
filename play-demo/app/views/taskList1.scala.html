@@ -4,7 +4,13 @@
 @main("Task List 1") {
     <h3>Task List 1</h3>
     <ul>
-        @for(task <- tasks) { <li>@task</li>
+        @for((task, i) <- tasks.zipWithIndex) { 
+            <li>@task</li>
+            <form method="POST" action="@routes.TaskList1.deleteTask">
+                @helper.CSRF.formField
+                <input type="hidden" name="index" value="@i"/>
+                <input type="submit" value="Delete"/>
+            </form>
             }
     </ul>
     <form method="POST" action="@routes.TaskList1.addTask">
