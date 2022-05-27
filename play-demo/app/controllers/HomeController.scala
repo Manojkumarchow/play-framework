@@ -32,8 +32,11 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
     Ok("Got request [" + request + "]")
   }
 
-
   def product(prodType: String, prodNumber: Int) = Action { implicit request: Request[_] =>
     Ok(s"Product Type is: $prodType and Product Number is: $prodNumber")
+  }
+
+  def randomNumber = Action {
+    Ok(util.Random.nextInt(100).toString)
   }
 }
